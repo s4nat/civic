@@ -1,6 +1,6 @@
 datasource db {
-  provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
@@ -9,32 +9,46 @@ generator client {
 }
 
 model Company {
-  company_id      Int      @id @default(autoincrement())
-  company_name    String   @db.VarChar(256)
-  fund_target_category    String   @db.VarChar(256)
-  fund_amount     Int
-  company_link    String   @db.Varchar(256)
-  action_taken    Boolean?  // Added boolean field for action taken indicator
-  device          Device   @relation(fields: [device_label], references: [device_label])
-}
-
-model User {
-  user_id       String   @id @db.VarChar(256) @unique
-  User_name     String   @db.VarChar(256)
-  user_email    String?  @db.VarChar(256) @unique
+  company_id           Int    @id @default(autoincrement())
+  company_name         String @db.VarChar(256)
+  fund_target_category String @db.VarChar(256)
+  fund_amount          Int
+  company_link         String @db.VarChar(256)
 }
 
 model Project {
-  project_id Int @id @default(autoincrement())
-  drive_id Int @relation()
+  project_id            Int        @id @default(autoincrement())
+  drive                 Drive      @relation(fields: [drive_id], references: [drive_id])
+  drive_id              String     @db.VarChar(256)
+  project_name          String     @db.VarChar(256)
+  project_description   String     @db.VarChar(256)
+  project_donations     Int
+  project_target_amount Int
+  project_match_amount  Int
+  Donation              Donation[]
+}
+
+model User {
+  user_id   String     @id @unique
+  user_name String     @db.VarChar(256)
+  Donation  Donation[]
 }
 
 model Drive {
-  drive_id Int @id @default(autoincrement())
-  drive_amount Int
-  drive_category String @db.Varchar(256)
-  drive_month Int
-  drive_description String @db.Varchar(256)
-  drive_name String @db.Varchar(256)
+  drive_id          String    @id @unique @db.VarChar(256)
+  drive_amount      Int
+  drive_category    String    @db.VarChar(256)
+  drive_month       Int
+  drive_description String    @db.VarChar(256)
+  drive_name        String    @db.VarChar(256)
+  Project           Project[]
 }
 
+model Donation {
+  donation_id     Int     @id @unique
+  project         Project @relation(fields: [project_id], references: [project_id])
+  project_id      Int
+  user            User    @relation(fields: [user_id], references: [user_id])
+  user_id         String  @db.VarChar(256)
+  donation_amount Int
+}
