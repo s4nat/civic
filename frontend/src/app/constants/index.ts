@@ -26,21 +26,47 @@ import {
   coins,
 } from "../../../public";
 
-export const navLinks = [
+export const signedInLinks = [
+  {
+    id: "explore",
+    title: "Explore",
+    link: "/projects"
+  },
+  {
+    id: "drives",
+    title: "Drives",
+    link: "/drives",
+  },
+  {
+    id: "initiate",
+    title: "Initiate",
+    link: "/initiate",
+  },
+  {
+    id: "your projects",
+    title: "Your Projects",
+    link: "/user/projects",
+  },
+];
+
+export const signedOutLinks = [
   {
     id: "home",
     title: "Home",
+    link: "/"
   },
   {
-    id: "product",
-    title: "Product",
+    id: "explore",
+    title: "Explore",
+    link: "/projects",
   },
   {
-    id: "pricing",
-    title: "Pricing",
-  },
+    id: "drives",
+    title: "Drives",
+    link: "/drives",
+  }
+]
 
-];
 
 export const features = [
   {

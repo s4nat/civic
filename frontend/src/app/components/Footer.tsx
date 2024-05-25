@@ -4,21 +4,18 @@ export default function Footer() {
   return (
     <div>
       <footer className="text-gray-800 w-4/5 mx-auto inter md:pt-24">
-        
+
         <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="flex-grow flex flex-wrap -mb-10 md:mt-0 mt-10 md:text-left text-center">
             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-              <h2 className="font-medium text-emerald-800 text-base mb-3">
-                Product links
-              </h2>
               <nav className="list-none mb-10 flex flex-col space-y-3 text-sm font-normal">
                 <li>
-                  <a className="text-gray-600 hover:text-lime-500 cursor-pointer" href="/report.pdf" target="_blank">
+                  <a className="text-gray-600 hover:text-lime-500 cursor-pointer" href="https://numerous-nitrogen-e35.notion.site/Backend-design-f48a8663833a4a9b868879ff68467fa5" target="_blank">
                     Documentation
                   </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-lime-500 cursor-pointer" href="https://www.github.com/ElgoElectric" target="_blank">
+                  <a className="text-gray-600 hover:text-lime-500 cursor-pointer" href="https://github.com/s4nat/civic/" target="_blank">
                     GitHub
                   </a>
                 </li>
@@ -28,8 +25,8 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-lime-500 cursor-pointer" href="/usermanual.pdf" target="_blank"> 
-                    User Manual
+                  <a className="text-gray-600 hover:text-lime-500 cursor-pointer" href="https://www.canva.com/design/DAGGHmpy_NE/Kx04_g9mYhAEXuqERBRZvg/edit?utm_content=DAGGHmpy_NE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+                    Pitch Deck
                   </a>
                 </li>
               </nav>
