@@ -1,0 +1,8 @@
+/node_modules
+.vercel
+.env
+/iot/device_certs_new
+sendgrid.env
+sendgrid.env
+sendgrid.env
+sendgrid.env

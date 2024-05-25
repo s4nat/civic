@@ -1,0 +1,37 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "/api/index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+        {
+          "src": "/anomalies(.*)",
+          "dest": "api/index.js"
+        },
+        {
+          "src": "/test",
+          "dest":"api/index.js"
+        },
+        {
+          "src": "/",
+          "dest": "api/index.js"
+        },
+        {
+          "src": "/(.*)",
+          "dest": "api/index.js"
+        }
+      ],
+      "crons": [
+        {
+          "path": "/anomalyChecker/cron",
+          "schedule": "*/30 * * * *"
+        },
+        {
+          "path": "/clearData/cron",
+          "schedule": "0 4 * * 6"
+        }
+      ]
+  }

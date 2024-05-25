@@ -1,0 +1,30 @@
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Company {
+  company_id      Int      @id @default(autoincrement())
+  company_name    String   @db.VarChar(256)
+  fund_target_category    String   @db.VarChar(256)
+  fund_amount     Int
+  company_link    String   @db.Varchar(256)
+  action_taken    Boolean?  // Added boolean field for action taken indicator
+  device          Device   @relation(fields: [device_label], references: [device_label])
+}
+
+model User {
+  user_id       String   @id @db.VarChar(256) @unique
+  User_name     String   @db.VarChar(256)
+  user_email    String?  @db.VarChar(256) @unique
+}
+
+model Project {
+  project_id Int @id @default(autoincrement())
+  
+}
