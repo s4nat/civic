@@ -1,4 +1,3 @@
-"use client";
 import styles from "@/app/constants/style";
 import CompanyCard from "../components/CompanyCard";
 
