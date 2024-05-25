@@ -1,6 +1,5 @@
 const companyService = require("../services/company.service.js");
-const prisma = require("../../lib/prisma.js");
-
+const driveService = require("../services/drive.service.js");
 
 exports.getAllCompanies = async (req, res) => {
   try {
@@ -36,101 +35,18 @@ exports.createCompany = async (req, res) => {
   }
 };
 
-// exports.updateAnomalyActionTaken = async (req, res) => {
-//   try {
-//     const { id, action_taken } = req.body;
-
-//     if (action_taken) {
-//       const anomaly = await prisma.anomaly.findUnique({
-//         where: { id },
-//         include: {
-//           device: {
-//             include: {
-//               user: true,
-//             },
-//           },
-//         },
-//       });
-
-//       if (!anomaly) {
-//         return res.status(404).json({ message: "Anomaly not found." });
-//       }
-
-//       const { device_label, timestamp_start, timestamp_end } = anomaly;
-//       const userName = anomaly.device.user.name;
-
-//       const msg = {
-//         to: process.env.SERVICE_EMAIL_ADDRESS,
-//         from: process.env.SENDGRID_VERIFIED_SENDER,
-//         subject: "Service Scheduled Notification",
-//         text: `A service has been scheduled by ${userName} for device ${device_label}. Anomaly detected from ${timestamp_start} to ${timestamp_end}.`,
-//         html: `<p>A service has been scheduled by <strong>${userName}</strong> for device <strong>${device_label}</strong>. Anomaly detected from <strong>${timestamp_start}</strong> to <strong>${timestamp_end}</strong>.</p>`,
-//       };
-
-//       // Send the email
-//       await sgMail.send(msg);
-//       console.log("Email sent successfully.");
-//     }
-
-//     // Update the anomaly action taken status
-//     const updatedAnomaly = await companyService.updateActionTaken(
-//       id,
-//       action_taken
-//     );
-//     res.json(updatedAnomaly);
-//   } catch (error) {
-//     console.error("❌ Failed to send email or update anomaly:", error);
-//     res.status(500).json({
-//       message: "❌ Error updating action taken for anomaly or sending email",
-//       error: error.message,
-//     });
-//   }
-// };
-
-// exports.updateAnomalyValidity = async (req, res) => {
-//   try {
-//     const { id, valid_anomaly } = req.body;
-//     const updatedAnomaly = await companyService.updateAnomaly(id, {
-//       valid_anomaly,
-//     });
-//     res.json(updatedAnomaly);
-//   } catch (error) {
-//     res.status(500).json({
-//       message: "❌ Error updating anomaly validity",
-//       error: error.message,
-//     });
-//   }
-// };
-
-
-// exports.listAnomaliesByDevice = async (req, res) => {
-//   try {
-//     const { deviceLabel } = req.params;
-//     const anomalies = await companyService.listAnomaliesByDeviceLabel(
-//       deviceLabel
-//     );
-//     res.json(anomalies);
-//   } catch (error) {
-//     res.status(500).json({
-//       message: "❌ Error retrieving anomalies by device label",
-//       error: error.message,
-//     });
-//   }
-// };
-
-// exports.listAnomaliesLast24Hours = async (req, res) => {
-//   try {
-//     const { deviceLabel } = req.params;
-//     const anomalies = await companyService.listAnomaliesByTimeFrame(
-//       deviceLabel,
-//       24
-//     );
-//     res.json(anomalies);
-//   } catch (error) {
-//     res.status(500).json({
-//       message: "❌ Error retrieving anomalies for the last 24 hours",
-//       error: error.message,
-//     });
-//   }
-// };
-
+exports.getFundAmountByCategory = async (req, res) => {
+  try {
+    const fundAmountByCategory = await companyService.getFundAmountByCategory();
+    fundAmountByCategory.forEach( (struct) => {
+      const category = struct.fund_target_category;
+      const fundAmountPerMonth = struct._sum.fund_amount / 12;
+      driveService.updateDriveAmountByCategory(category, fundAmountPerMonth);
+    });
+    res.json(fundAmountByCategory);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "❌ Error retrieving fund amount by category", error: error.message });
+  }
+}

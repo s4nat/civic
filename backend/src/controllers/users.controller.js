@@ -56,7 +56,8 @@ exports.updateUser = async (req, res) => {
 exports.listAllUsers = async (req, res) => {
   try {
     const users = await userService.listAllUsers();
-    res.json(users);
+    const response = {"data": users, "num_users": users.length};
+    res.json(response);
   } catch (error) {
     res
       .status(500)

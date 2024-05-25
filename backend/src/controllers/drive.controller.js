@@ -33,3 +33,22 @@ exports.getDriveById = async (req, res) => {
     });
   }
 };
+
+exports.getAvailableFundingByDriveId = async (req, res) => {
+  try {
+    console.log("Requesting available funding for drive with ID:", req.params.id);
+    const drive = await driveService.getAvailableFundingByDriveId(
+      req.params.id   
+    );
+    if (drive) {
+      res.json(drive);
+    } else {
+      res.status(404).json({ message: "Drive not found" });
+    }
+  } catch (error) {
+    res.status(500).json({
+      message: "❌ Error retrieving available funding by drive ID",
+      error: error.message,
+    });
+  }
+}
