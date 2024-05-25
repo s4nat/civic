@@ -17,6 +17,8 @@ model Company {
 
 model Project {
   project_id            Int        @id @default(autoincrement())
+  user                  User       @relation(fields: [user_id], references: [user_id])
+  user_id               String     @db.VarChar(256)
   drive                 Drive      @relation(fields: [drive_id], references: [drive_id])
   drive_id              String     @db.VarChar(256)
   project_name          String     @db.VarChar(256)
@@ -28,9 +30,10 @@ model Project {
 }
 
 model User {
-  user_id   String     @id @unique
-  user_name String     @db.VarChar(256)
-  Donation  Donation[]
+  user_id     String     @id @unique
+  user_name   String     @db.VarChar(256)
+  Donation    Donation[]
+  Project     Project[]
 }
 
 model Drive {
