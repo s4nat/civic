@@ -8,6 +8,9 @@ import logo1 from "./logo1.svg";
 import logo2 from "./logo2.svg";
 import quotes from "./quotes.svg";
 import tesselation from "./tesselation.jpg";
+import plant from "./plant.svg";
+import begging from "./begging.svg";
+import coins from "./coins.svg";
 import send from "./Send.svg";
 import shield from "./Shield.svg";
 import star from "./Star.svg";
@@ -44,6 +47,9 @@ export {
   logo2,
   quotes,
   tesselation,
+  plant,
+  begging,
+  coins,
   send,
   shield,
   star,

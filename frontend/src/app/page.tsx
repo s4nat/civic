@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Billing from "./components/Billing";
 import Business from "./components/Business";
+import Stats from "./components/Stats"
 import CTA from "./components/CTA";
 import CardDeal from "./components/CardDeal";
 import Hero from "./components/Hero";
@@ -19,9 +20,7 @@ export default function Home() {
       <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
           <Business />
-          <Billing />
-          <CardDeal />
-          <Pricing />
+          <Stats />
           <Team />
           <CTA />
         </div>

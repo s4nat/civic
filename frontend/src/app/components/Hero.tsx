@@ -19,8 +19,7 @@ const Hero = () => {
         />
         <div className="flex flex-row justify-between items-center w-full">
           <h1 className="flex-1 font-playfair font-semibold ss:text-[72px] text-[52px] ss:leading-[100.8px] leading-[75px] inline-block text-[#1E1E1E]">
-            The Pulse <br className="sm:block hidden" />{" "}
-            <span className="text-gradient text-[#1E1E1E]">Of The </span>{" "}
+            The Pulse of the<br className="sm:block hidden" />{" "}
           </h1>
           {/* <div className="ss:flex sm:invisible xl:visible lg:visible 2xl:visible md:mr-4 mr-0">
             <GetStarted />
@@ -39,7 +38,7 @@ const Hero = () => {
         <Image
           src={tesselation}
           alt="billing"
-          className="h-[120%] relative z-[5]"
+          className="h-[120%] w-[95%] relative z-[5]"
         />
       </div>
 
