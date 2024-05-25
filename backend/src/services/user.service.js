@@ -21,7 +21,7 @@ exports.updateUser = async (userId, updateData) => {
 
 exports.findUserByEmail = async (email) => {
   return prisma.user.findUnique({
-    where: { email: email },
+    where: { user_email: email }
   });
 };
 

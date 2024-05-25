@@ -1,10 +1,9 @@
 const userService = require("../services/user.service.js"); // Adjust path as needed
-const { v4: uuidv4 } = require("uuid");
 
 exports.createUser = async (req, res) => {
   try {
     const existingUserByEmail = await userService.findUserByEmail(
-      req.body.email
+      req.body.user_email
     );
     if (existingUserByEmail) {
       return res
@@ -12,25 +11,13 @@ exports.createUser = async (req, res) => {
         .json({ message: "❌ User with this email already exists." });
     }
 
-    let uniqueIdFound = false;
-    let userId;
-    while (!uniqueIdFound) {
-      userId = uuidv4(); // Generate a unique user ID
-      const existingUserById = await userService.getUserById(userId);
-      if (!existingUserById) {
-        uniqueIdFound = true; // Unique ID found, exit the loop
-      }
-      // If the ID is not unique, the loop will continue and generate a new ID
-    }
-
     // Proceed to create user with the unique user ID
     const userData = {
       ...req.body,
-      user_id: userId, // Assuming your user model accepts a userId field
     };
 
     const user = await userService.createUser(userData);
-    res.status(201).json(user);
+    res.status(200).json(user);
   } catch (error) {
     res
       .status(500)
@@ -40,7 +27,7 @@ exports.createUser = async (req, res) => {
 
 exports.getUserById = async (req, res) => {
   try {
-    const user = await userService.getUserById(req.params.userId);
+    const user = await userService.getUserById(parseInt(req.params.userId));
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
