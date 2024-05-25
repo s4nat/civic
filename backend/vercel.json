@@ -8,30 +8,28 @@
     ],
     "routes": [
         {
-          "src": "/anomalies(.*)",
+          "src": "/donation(.*)",
           "dest": "api/index.js"
         },
         {
-          "src": "/test",
+          "src": "/company(.*)",
           "dest":"api/index.js"
         },
         {
-          "src": "/",
+          "src": "/drive(.*)",
+          "dest": "api/index.js"
+        },
+        {
+          "src": "/project(.*)",
+          "dest": "api/index.js"
+        },
+        {
+          "src": "/user(.*)",
           "dest": "api/index.js"
         },
         {
           "src": "/(.*)",
           "dest": "api/index.js"
-        }
-      ],
-      "crons": [
-        {
-          "path": "/anomalyChecker/cron",
-          "schedule": "*/30 * * * *"
-        },
-        {
-          "path": "/clearData/cron",
-          "schedule": "0 4 * * 6"
         }
       ]
   }
