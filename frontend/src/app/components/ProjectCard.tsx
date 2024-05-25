@@ -4,7 +4,7 @@ import { singapore } from "../../../public";
 import ProgressBar from "./ProgressBar";
 import Link from "next/link";
 interface ProjectCardProps {
-    id:string;
+    id:number;
     name: string;
     description: string;
     donation: number;

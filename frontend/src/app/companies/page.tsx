@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch("https://civic-kohl.vercel.app/project/getProjects");
+        const response = await fetch("https://civic-kohl.vercel.app/company");
         const data: CompanyProps[] = await response.json();
         console.log(data);
         setCompanyData(data); 
@@ -39,7 +39,7 @@ export default function Home() {
               name={company.company_name}
               link={company.company_link}
               fundCategory={company.fund_target_category}
-              fundAmount={company.fund_amount.toString()}
+              fundAmount={company.fund_amount}
             />
           
         ))}

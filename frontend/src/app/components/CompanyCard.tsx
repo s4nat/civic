@@ -4,7 +4,7 @@ import { coinbase } from "../../../public";
 import Link from "next/link";
 interface CompanyCardProps {
   name: string;
-  fundAmount: string;
+  fundAmount: any;
   fundCategory: string;
   link: any;
 }
