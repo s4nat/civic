@@ -1,15 +1,15 @@
-'use client';
+"use client";
 import ProjectCard from "../components/ProjectCard";
 import ProjectProps from "../components/ProjectProps";
 import styles from "../constants/style";
 import { useState, useEffect } from "react";
 
-export default async function Home() {
+export default function Home() {
   const [projects, setProjects] = useState<ProjectProps[]>([]);
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch("/projectGallery.json");
+        const response = await fetch("https://civic-kohl.vercel.app/project/getProjects");
         const data: ProjectProps[] = await response.json();
         setProjects(data);
       } catch (error) {
@@ -36,15 +36,16 @@ export default async function Home() {
           return (
             <div key={project.project_id}>
               <ProjectCard
+                id={project.project_id}
                 name={project.project_name}
                 description={project.project_description}
                 donation={project.project_donations}
                 target={project.project_target_amount}
-                matchamt={project.project_match_amount} />
+                matchamt={project.project_match_amount}
+              />
             </div>
-          )
+          );
         })}
-        
       </div>
     </main>
   );
