@@ -24,7 +24,7 @@ export default function ProjectCard(props: ProjectCardProps) {
                 <div className="text-sm mb-1">{props.description}</div>
             </div>
             <div className="flex flex-col">
-                <ProgressBar fundAmount={100} targetAmount={1000}/>
+                <ProgressBar fundAmount={props.donation} targetAmount={props.target}/>
                 <div className="flex justify-between my-1">
                     <div className="text-sm font-bold">Donated: {props.donation}</div>
                     <div className="text-sm font-bold">Target: {props.target}</div>

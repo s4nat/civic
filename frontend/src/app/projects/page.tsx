@@ -10,8 +10,9 @@ export default function Home() {
     const fetchProjects = async () => {
       try {
         const response = await fetch("https://civic-kohl.vercel.app/project/getProjects");
-        const data: ProjectProps[] = await response.json();
-        setProjects(data);
+        const data = await response.json();
+        const dataArray: ProjectProps[] = data["projects"];
+        setProjects(dataArray);
       } catch (error) {
         console.error("Error fetching projects:", error);
       }

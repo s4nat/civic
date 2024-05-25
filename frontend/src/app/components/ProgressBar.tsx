@@ -14,7 +14,7 @@ export default function ProgressDemo(props: ProgressDemoProps) {
     const currProg = (props.fundAmount / props.targetAmount)*100;
     const timer = setTimeout(() => setProgress(currProg), 500);
     return () => clearTimeout(timer);
-  }, []);
+  }, [props.fundAmount, props.targetAmount]);
 
   return (
     <Progress.Root
