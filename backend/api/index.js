@@ -2,7 +2,7 @@ const express = require("express");
 const companyRouter = require("../src/routes/company.route.js"); // make sure the path points to your anomaly router file
 const deviceRouter = require("../src/routes/device.routes.js");
 const userRouter = require("../src/routes/user.routes.js");
-const datastreamRouter = require("../src/routes/datastream.routes.js");
+const datastreamRouter = require("../src/routes/drive.routes.js");
 const sagemakeranomalyRouter = require("../src/routes/sagemakeranomaly.routes.js");
 const app = express();
 app.use((req, res, next) => {
@@ -20,10 +20,12 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 app.use("/company", companyRouter);
+app.use("/drive", datastreamRouter);
+
 app.use("/devices", deviceRouter);
 app.use("/users", userRouter);
 app.use("/sagemakerAnomalies", sagemakeranomalyRouter);
-app.use("/datastreams", datastreamRouter);
+
 
 app.get("/", (req, res) => {
   console.info("INFO: Server Started Successfully");
