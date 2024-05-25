@@ -34,10 +34,7 @@ export default function Home() {
         </div>
         <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-[20px]">
         {companyData.map((company, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 w-full sm:max-w-[100%] md:max-w-[20%] mb-4"
-          >
+          
             <CompanyCard
               key={company.company_id}
               name={company.company_name}
@@ -45,7 +42,7 @@ export default function Home() {
               fundCategory={company.fund_target_category}
               fundAmount={company.fund_amount.toString()}
             />
-          </div>
+          
         ))}
         </div>
       </div>

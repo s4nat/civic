@@ -35,6 +35,7 @@ import czjie from "./Chow Zi Jie_E02.jpg";
 import tx from "./Tan Xinlin_E02.jpg";
 import fauxzan from "./Mohammed Fauzaan Mahaboob_E02.jpg";
 import vn from "./Visshal Natarajan_E02.jpg";
+import singapore from "./singapore.jpeg";
 
 export {
   airbnb,
@@ -74,4 +75,5 @@ export {
   tx,
   fauxzan,
   vn,
+  singapore,
 };
