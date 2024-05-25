@@ -10,7 +10,7 @@ import Team from "./components/Team";
 
 export default function Home() {
   return (
-    <div className="bg-primary w-full pt-24 z-0 overflow-hidden">
+    <div className="bg-white w-full pt-24 z-0 overflow-hidden">
       <div className={`bg-primary ${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
           <Hero />

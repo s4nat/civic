@@ -13,9 +13,8 @@ interface FeatureCardProps {
 
 const FeatureCard = (props: FeatureCardProps) => (
   <div
-    className={`flex flex-row p-6 p-6 rounded-[20px] bg-gradient-to-r from-slate-600 via-white-100 to-black hover:from-indigo-500 ${
-      props.index !== features.length - 1 ? "mb-6" : "mb-0"
-    } feature-card `}
+    className={`flex flex-row p-6 p-6 rounded-[20px] bg-[#AF5A5A] hover:from-indigo-500 ${props.index !== features.length - 1 ? "mb-6" : "mb-0"
+      } feature-card `}
   >
     <div className={`w-[64px] h-[64px] rounded-full ${styles.flexCenter} m-3`}>
       <h4 className="font-playfair font-semibold text-[25px] sm:text-[30px] leading-[43px] sm:leading-[53px]">
@@ -38,14 +37,13 @@ const Business = () => {
     <section id="features" className={layout.section}>
       <div className={layout.sectionInfo}>
         <h2 className={styles.heading2}>
-          You manage the business, <br className="sm:block hidden" />
-          <div className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
-            we&apos;ll handle the energy.
+          Maximize community impact through <br className="sm:block hidden" />
+          <div className={styles.heading2}>
+            collaborative funding and corporate support.
           </div>
         </h2>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-          F&B outlets in Asia use 4X more Energy per Meter<sup>2</sup> than
-          office buildings affecting their bottom line by over 15%.
+          73% of community initiatives fizzled out due to lack of funding
         </p>
       </div>
       <div className={`${layout.sectionImg} flex-col`}>

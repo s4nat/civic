@@ -1,5 +1,5 @@
 import styles from "../constants/style";
-import { robot } from "../../../public";
+import { tesselation, logo1 } from "../../../public";
 import GetStarted from "./GetStarted";
 import Image from "next/image";
 
@@ -12,30 +12,34 @@ const Hero = () => {
       <div
         className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}
       >
+        <Image
+          src={logo1}
+          alt="billing"
+          className="w-[40%] h-[40%] relative z-[5]"
+        />
         <div className="flex flex-row justify-between items-center w-full">
-          <h1 className="flex-1 font-playfair font-semibold ss:text-[72px] text-[52px] ss:leading-[100.8px] leading-[75px] bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
-            No One <br className="sm:block hidden" />{" "}
-            <span className="text-gradient text-white">Looks Out</span>{" "}
+          <h1 className="flex-1 font-playfair font-semibold ss:text-[72px] text-[52px] ss:leading-[100.8px] leading-[75px] inline-block text-[#1E1E1E]">
+            The Pulse <br className="sm:block hidden" />{" "}
+            <span className="text-gradient text-[#1E1E1E]">Of The </span>{" "}
           </h1>
-          <div className="ss:flex sm:invisible xl:visible lg:visible 2xl:visible md:mr-4 mr-0">
+          {/* <div className="ss:flex sm:invisible xl:visible lg:visible 2xl:visible md:mr-4 mr-0">
             <GetStarted />
-          </div>
+          </div> */}
         </div>
-        <h1 className="font-playfair font-semibold ss:text-[68px] text-[52px] ss:leading-[100.8px] leading-[75px] w-full bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
-          For the Lil&apos; Guys.
+        <h1 className="font-playfair font-semibold ss:text-[68px] text-[52px] ss:leading-[100.8px] leading-[75px] w-full text-[#1E1E1E] inline-block">
+          Community.
         </h1>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-          Small and medium sized F&B outlets lack an impactful energy
-          optimization solution. ElgoElectric is here to change that.
+          A crowdfunding platform for community initiatives which empowers communities to create real social impact.
         </p>
       </div>
       <div
-        className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}
+        className={`flex-1 flex ${styles.flexCenter} md:my-0 relative`}
       >
         <Image
-          src={robot}
+          src={tesselation}
           alt="billing"
-          className="w-[100%] h-[100%] relative z-[5]"
+          className="h-[120%] relative z-[5]"
         />
       </div>
 
