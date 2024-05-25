@@ -11,6 +11,7 @@ import tesselation from "./tesselation.jpg";
 import plant from "./plant.svg";
 import begging from "./begging.svg";
 import coins from "./coins.svg";
+import heart from "./heart.svg";
 import send from "./Send.svg";
 import shield from "./Shield.svg";
 import star from "./Star.svg";
@@ -51,6 +52,7 @@ export {
   plant,
   begging,
   coins,
+  heart,
   send,
   shield,
   star,
