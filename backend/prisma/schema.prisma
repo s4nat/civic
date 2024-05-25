@@ -1,7 +1,6 @@
 datasource db {
   provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  url = env("POSTGRES_URL") // uses connection pooling
 }
 
 generator client {
@@ -15,7 +14,6 @@ model Company {
   fund_amount     Int
   company_link    String   @db.Varchar(256)
   action_taken    Boolean?  // Added boolean field for action taken indicator
-  device          Device   @relation(fields: [device_label], references: [device_label])
 }
 
 model User {
@@ -26,7 +24,7 @@ model User {
 
 model Project {
   project_id Int @id @default(autoincrement())
-  drive_id Int @relation()
+  drive_id Int
 }
 
 model Drive {

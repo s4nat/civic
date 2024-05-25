@@ -1,51 +1,15 @@
-const anomalyService = require("../services/anomaly.service.js");
-const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const companyService = require("../services/company.service.js");
 const prisma = require("../../lib/prisma.js");
 
-exports.createAnomaly = async (req, res) => {
+exports.createCompany = async (req, res) => {
   console.log("Received request body:", req.body);
   try {
-    const anomalyData = { ...req.body };
-    const convertTimestamp = (timestamp) => `${timestamp}.000Z`;
+    const companyData = { ...req.body };
 
-    // Convert timestamps
-    if (anomalyData.timestamp_start) {
-      anomalyData.timestamp_start = convertTimestamp(
-        anomalyData.timestamp_start
-      );
-    }
-    if (anomalyData.timestamp_end) {
-      anomalyData.timestamp_end = convertTimestamp(anomalyData.timestamp_end);
-    }
-    const device = await prisma.device.findUnique({
-      where: { device_label: anomalyData.device_label },
-      include: { user: true },
-    });
-
-    if (!device || !device.user) {
-      return res.status(404).json({ message: "Device or user not found." });
-    }
-
-    const msg = {
-      to: device.user.email,
-      from: process.env.SENDGRID_VERIFIED_SENDER,
-      subject: `Anomaly Detected in `,
-      text: `An anomaly has been detected in ${anomalyData.device_label} from ${anomalyData.timestamp_start} to ${anomalyData.timestamp_end}. Please visit the website to take action.`,
-      html: `
-        <strong>Anomaly Detected</strong><br>
-        An anomaly has been detected in <b>${anomalyData.device_label}</b> from <b>${anomalyData.timestamp_start}</b> to <b>${anomalyData.timestamp_end}</b>.<br>
-        Please <a href="https://elgoapp.com/">visit our website</a> to take action.
-      `,
-    };
-
-    // Send the email
-    await sgMail.send(msg);
-    console.log("Email sent successfully.");
-
+    console.log(companyData);
     // Proceed to create the anomaly with the provided data
-    const newAnomaly = await anomalyService.createAnomaly(anomalyData);
-    res.json(newAnomaly);
+    const newCompany = await companyService.createCompany(companyData);
+    res.json(newCompany);
   } catch (error) {
     console.error("❌ Failed to send email or create anomaly:", error);
 
@@ -96,7 +60,7 @@ exports.updateAnomalyActionTaken = async (req, res) => {
     }
 
     // Update the anomaly action taken status
-    const updatedAnomaly = await anomalyService.updateActionTaken(
+    const updatedAnomaly = await companyService.updateActionTaken(
       id,
       action_taken
     );
@@ -113,7 +77,7 @@ exports.updateAnomalyActionTaken = async (req, res) => {
 exports.updateAnomalyValidity = async (req, res) => {
   try {
     const { id, valid_anomaly } = req.body;
-    const updatedAnomaly = await anomalyService.updateAnomaly(id, {
+    const updatedAnomaly = await companyService.updateAnomaly(id, {
       valid_anomaly,
     });
     res.json(updatedAnomaly);
@@ -125,9 +89,9 @@ exports.updateAnomalyValidity = async (req, res) => {
   }
 };
 
-exports.getAllAnomalies = async (req, res) => {
+exports.getAllCompanies = async (req, res) => {
   try {
-    const anomalies = await anomalyService.listAllAnomalies();
+    const companies = await companyService.listAllCompanies();
     res.json(anomalies);
   } catch (error) {
     res
@@ -139,7 +103,7 @@ exports.getAllAnomalies = async (req, res) => {
 exports.listAnomaliesByDevice = async (req, res) => {
   try {
     const { deviceLabel } = req.params;
-    const anomalies = await anomalyService.listAnomaliesByDeviceLabel(
+    const anomalies = await companyService.listAnomaliesByDeviceLabel(
       deviceLabel
     );
     res.json(anomalies);
@@ -154,7 +118,7 @@ exports.listAnomaliesByDevice = async (req, res) => {
 exports.listAnomaliesLast24Hours = async (req, res) => {
   try {
     const { deviceLabel } = req.params;
-    const anomalies = await anomalyService.listAnomaliesByTimeFrame(
+    const anomalies = await companyService.listAnomaliesByTimeFrame(
       deviceLabel,
       24
     );
@@ -170,7 +134,7 @@ exports.listAnomaliesLast24Hours = async (req, res) => {
 exports.listAnomaliesLast48Hours = async (req, res) => {
   try {
     const { deviceLabel } = req.params;
-    const anomalies = await anomalyService.listAnomaliesByTimeFrame(
+    const anomalies = await companyService.listAnomaliesByTimeFrame(
       deviceLabel,
       48
     );

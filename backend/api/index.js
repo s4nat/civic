@@ -1,5 +1,5 @@
 const express = require("express");
-const anomalyRouter = require("../src/routes/anomaly.routes.js"); // make sure the path points to your anomaly router file
+const companyRouter = require("../src/routes/company.route.js"); // make sure the path points to your anomaly router file
 const deviceRouter = require("../src/routes/device.routes.js");
 const userRouter = require("../src/routes/user.routes.js");
 const datastreamRouter = require("../src/routes/datastream.routes.js");
@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 
-app.use("/anomalies", anomalyRouter);
+app.use("/company", companyRouter);
 app.use("/devices", deviceRouter);
 app.use("/users", userRouter);
 app.use("/sagemakerAnomalies", sagemakeranomalyRouter);

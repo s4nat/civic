@@ -1,7 +1,7 @@
 const prisma = require("../../lib/prisma.js");
 
-exports.createAnomaly = async (anomalyData) => {
-  return prisma.anomaly.create({ data: anomalyData });
+exports.createCompany = async (companyData) => {
+  return prisma.company.create({ data: companyData });
 };
 
 exports.getAnomalyById = async (id) => {
@@ -72,6 +72,6 @@ exports.listAnomaliesByTimeFrame = async (deviceLabel, hours) => {
   });
 };
 
-exports.listAllAnomalies = async () => {
-  return prisma.anomaly.findMany();
+exports.listAllCompanies = async () => {
+  return prisma.company.findMany();
 };
