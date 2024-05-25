@@ -13,11 +13,10 @@ export default function Home() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        // Assuming projects.json is in the public folder
-        const response = await fetch("https://civic-kohl.vercel.app/company");
+        const response = await fetch("https://civic-kohl.vercel.app/project/getProjects");
         const data: CompanyProps[] = await response.json();
         console.log(data);
-        setCompanyData(data);
+        setCompanyData(data); 
       } catch (error) {
         console.error("Error fetching projects:", error);
       }
