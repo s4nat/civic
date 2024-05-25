@@ -26,5 +26,15 @@ model User {
 
 model Project {
   project_id Int @id @default(autoincrement())
-  
+  drive_id Int @relation()
 }
+
+model Drive {
+  drive_id Int @id @default(autoincrement())
+  drive_amount Int
+  drive_category String @db.Varchar(256)
+  drive_month Int
+  drive_description String @db.Varchar(256)
+  drive_name String @db.Varchar(256)
+}
+
