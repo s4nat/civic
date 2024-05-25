@@ -2,7 +2,7 @@
 
 import styles from "@/app/constants/style";
 import CompanyCard from "../components/CompanyCard";
-import CompanyProps from "../components/CompanyProps";
+import CompanyProps from "../props/CompanyProps";
 import { useState, useEffect } from "react";
 
 
