@@ -17,10 +17,10 @@ const Navbar = () => {
   return (
     <header>
       <div className={``}>
-        <nav className={`${styles.paddingX} xl:max-w-full w-full fixed top-0 flex justify-between py-6 items-center navbar z-10 bg-[#D9D9D9] px-6`}>
+        <nav className={`${styles.paddingX} xl:max-w-full w-full fixed top-0 flex justify-between py-6 items-center navbar z-10 bg-[#262D44] px-6`}>
           <div className={`w-1/2 flex justify-start`}>
             <Image src={logo2} alt="hoobank" className="w-[54px] h-[52px]" />
-            <div className="font-playfair font-medium text-[24px] text-[#1E1E1E] hover:text-[#7C0000] ml-2 flex items-center">
+            <div className="font-playfair font-medium text-[24px] text-[#C2CBDC] hover:text-[#7C0000] ml-2 flex items-center">
               CIVIC.
               {/* <div className="font-playfair font-medium text-[24px] text-[#7ed957] hover:text-[#1E1E1E] flex items-center">
                 Electric
@@ -33,7 +33,7 @@ const Navbar = () => {
               <li
                 key={nav.id}
                 className={`font-playfair font-normal cursor-pointer text-[16px] ${i === navLinks.length - 1 ? "mr-0" : "mr-10"
-                  } text-[#1E1E1E] hover:text-lime-500 mr-10 ${currentRoute === `/#${nav.id}`
+                  } text-[#C2CBDC] hover:text-lime-500 mr-10 ${currentRoute === `/#${nav.id}`
                     ? "border-b-4 border-white"
                     : "border-b-4 border-transparent"
                   }`}
@@ -42,11 +42,11 @@ const Navbar = () => {
               </li>
             ))}
             {user && (
-              <li className="font-playfair font-normal cursor-pointer text-[16px] text-bold text-[#1E1E1E] mr-10">
+              <li className="font-playfair font-normal cursor-pointer text-[16px] text-bold text-[#C2CBDC] mr-10">
                 <Link href={"/user/home"}>Dashboard</Link>
               </li>
             )}
-            <li className="font-playfair font-normal cursor-pointer text-[16px] text-[#1E1E1E] text-bold hover:text-lime-500 mr-10">
+            <li className="font-playfair font-normal cursor-pointer text-[16px] text-[#C2CBDC] text-bold hover:text-lime-500 mr-10">
               {!isLoading && !user && (
                 <Link href={"/api/auth/login"}>Sign In</Link>
               )}
