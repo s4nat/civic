@@ -2,6 +2,7 @@ import ProjectCard from "../components/ProjectCard";
 import styles from "../constants/style";
 
 export default async function Home() {
+  
   return (
     <main className="flex min-h-screen flex-col justify-center items-center p-24 z-0">
       <div className={styles.boxWidth}>
@@ -14,7 +15,7 @@ export default async function Home() {
         </div>
       </div>
       <div className="mt-5 grid grid-cols-1 sm:grid-cols-4 gap-[20px]">
-        <ProjectCard name="Project 1" description="Description 1" donation={100} target={1000} matchamt={100} />
+        <ProjectCard id={"1"} name="Project 1" description="Description 1" donation={100} target={1000} matchamt={100} />
       </div>
     </main>
   );
