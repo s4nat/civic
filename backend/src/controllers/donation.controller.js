@@ -3,7 +3,8 @@ const donationService = require("../services/donation.service.js"); // Adjust th
 exports.getDonations = async (req, res) => {
   try {
     const donation = await donationService.getDonations();
-    res.json(donation);
+    const response = {"donations": donation, "totalDonations": donation.length};
+    res.json(response);
   } catch (error) {
     res.status(500).json({
       message: "❌ Error retrieving donations",

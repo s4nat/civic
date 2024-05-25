@@ -16,7 +16,8 @@ exports.createProject = async (req, res) => {
 exports.getProjects = async (req, res) => {
   try {
     const project = await projectService.getProjects();
-    res.json(project);
+    const response = {"projects": project, "totalProjects": project.length};
+    res.json(response);
   } catch (error) {
     res
       .status(500)

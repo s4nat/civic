@@ -14,3 +14,9 @@ exports.getFundAmountByCategory = async () => {
     _sum: { fund_amount: true }
   });
 }
+
+exports.sumCompanyFunds = async () => {
+  return prisma.company.aggregate({
+    _sum: { fund_amount: true }
+  });
+}

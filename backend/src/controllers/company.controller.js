@@ -50,3 +50,14 @@ exports.getFundAmountByCategory = async (req, res) => {
       .json({ message: "❌ Error retrieving fund amount by category", error: error.message });
   }
 }
+
+exports.sumCompanyFunds = async (req, res) => {
+  try {
+    const sumCompanyFunds = await companyService.sumCompanyFunds();
+    res.json(sumCompanyFunds);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "❌ Error summing company funds", error: error.message });
+  }
+}
