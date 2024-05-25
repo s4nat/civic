@@ -112,3 +112,26 @@ exports.updateProjectDonations = async (req, res) => {
       .json({ message: "❌ Failed to update project", error: error.message });
   }
 };
+
+exports.updateProjectMatchAmount = async (req, res) => {
+  try {
+    const updateAmount = req.body.amount;
+    const projectId = parseInt(req.params.id);
+    // Get the existing project data
+    const project = await projectService.getProjectById(projectId);
+    if (!project) {
+      return res.status(404).json({ message: "👀 project not found" });
+    }
+
+    
+    const updatedProject = await projectService.updateProjectMatchAmount(
+      projectId,
+      updateAmount // project with the updated match amount field
+    );
+    res.json(updatedProject);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "❌ Failed to update project", error: error.message });
+  }
+}

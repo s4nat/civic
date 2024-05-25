@@ -35,11 +35,10 @@ exports.updateProjectDonations = async (projectId, project) => {
   });
 };
 
-
-
-exports.deleteDevice = async (deviceLabel) => {
-  return prisma.device.delete({
-    where: { device_label: deviceLabel },
+exports.updateProjectMatchAmount = async (projectId, updateAmount) => {
+  return prisma.project.update({
+    where: { project_id : projectId },
+    data: { project_match_amount: updateAmount },
   });
 };
 
