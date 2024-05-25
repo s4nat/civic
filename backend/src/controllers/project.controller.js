@@ -1,4 +1,5 @@
-const projectService = require("../services/project.service.js"); // Adjust the path as needed
+const projectService = require("../services/project.service.js");
+const donationService = require("../services/donation.service.js");
 
 exports.createProject = async (req, res) => {
   try {
@@ -26,7 +27,7 @@ exports.getProjects = async (req, res) => {
 
 exports.getProjectById = async (req, res) => {
   try {
-    const projectId  = parseInt(req.params.id); // Assuming projectLabel is a URL parameter
+    const projectId  = parseInt(req.params.id);
     const project = await projectService.getProjectById(projectId);
     if (project) {
       res.json(project);
@@ -42,7 +43,7 @@ exports.getProjectById = async (req, res) => {
 
 exports.getProjectByUser = async (req, res) => {
   try {
-    const userId  = parseInt(req.params.id); // Assuming projectLabel is a URL parameter
+    const userId  = parseInt(req.params.id);
     const project = await projectService.getProjectByUserId(userId);
     if (project) {
       res.json(project);
@@ -58,7 +59,7 @@ exports.getProjectByUser = async (req, res) => {
 
 exports.getProjectByDriveId = async (req, res) => {
   try {
-    const driveId  = req.params.id; // Assuming projectLabel is a URL parameter
+    const driveId  = req.params.id; 
     const project = await projectService.getProjectByDriveId(driveId);
     if (project) {
       res.json(project);
@@ -74,14 +75,31 @@ exports.getProjectByDriveId = async (req, res) => {
 
 exports.updateProjectDonations = async (req, res) => {
   try {
-    const updateAmount = req.body.amount; // Assuming deviceLabel is a URL parameter
+    const updateAmount = req.body.amount;
+    const userId = req.body.user_id;
     const projectId = parseInt(req.params.id);
+
+    // Update the donation table
+    const dump = await donationService.createDonation({
+      donation_amount: updateAmount,
+      user_id: userId,
+      project_id: projectId,
+    });
+
+    // Get the existing project data
     console.log("Updating", updateAmount, "for", "project", projectId)
     const project = await projectService.getProjectById(projectId);
     if (!project) {
       return res.status(404).json({ message: "👀 project not found" });
     }
-    project.project_donations += updateAmount;
+
+    // Get the total donations for the project
+    let donationsAmount = 0;
+    const response = await donationService.getDonationsByProjectId(projectId);
+    for (let i = 0; i < response.length; i++) {
+      donationsAmount += response[i].donation_amount;
+    }
+    project.project_donations =  donationsAmount;
 
     const updatedProject = await projectService.updateProjectDonations(
       projectId,

@@ -3,7 +3,7 @@ const companyRouter = require("../src/routes/company.route.js"); // make sure th
 const projectRouter = require("../src/routes/project.routes.js");
 const userRouter = require("../src/routes/user.routes.js");
 const datastreamRouter = require("../src/routes/drive.routes.js");
-const sagemakeranomalyRouter = require("../src/routes/sagemakeranomaly.routes.js");
+const donationRouter = require("../src/routes/donation.routes.js");
 const app = express();
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -23,6 +23,7 @@ app.use("/company", companyRouter);
 app.use("/drive", datastreamRouter);
 app.use("/project", projectRouter);
 app.use("/user", userRouter);
+app.use("/donation", donationRouter);
 
 
 app.get("/", (req, res) => {

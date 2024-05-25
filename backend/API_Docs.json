@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "CIVIV API",
+    "title": "CIVIC API",
     "description": "Description",
     "version": "1.0.0"
   },

@@ -47,7 +47,7 @@ model Drive {
 }
 
 model Donation {
-  donation_id     Int     @id @unique
+  donation_id     Int     @id @unique @default(autoincrement())
   project         Project @relation(fields: [project_id], references: [project_id])
   project_id      Int
   user            User    @relation(fields: [user_id], references: [user_id])
