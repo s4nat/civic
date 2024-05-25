@@ -1,8 +1,25 @@
+'use client';
 import ProjectCard from "../components/ProjectCard";
+import ProjectProps from "../components/ProjectProps";
 import styles from "../constants/style";
+import { useState, useEffect } from "react";
 
 export default async function Home() {
-  
+  const [projects, setProjects] = useState<ProjectProps[]>([]);
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch("/projectGallery.json");
+        const data: ProjectProps[] = await response.json();
+        setProjects(data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
   return (
     <main className="flex min-h-screen flex-col justify-center items-center p-24 z-0">
       <div className={styles.boxWidth}>
@@ -15,7 +32,19 @@ export default async function Home() {
         </div>
       </div>
       <div className="mt-5 grid grid-cols-1 sm:grid-cols-4 gap-[20px]">
-        <ProjectCard id={"1"} name="Project 1" description="Description 1" donation={100} target={1000} matchamt={100} />
+        {projects.map((project, index) => {
+          return (
+            <div key={project.project_id}>
+              <ProjectCard
+                name={project.project_name}
+                description={project.project_description}
+                donation={project.project_donations}
+                target={project.project_target_amount}
+                matchamt={project.project_match_amount} />
+            </div>
+          )
+        })}
+        
       </div>
     </main>
   );

@@ -21,10 +21,9 @@ const Navbar = () => {
           <div className={`w-1/2 flex justify-start`}>
             <Image src={logo2} alt="hoobank" className="w-[54px] h-[52px]" />
             <div className="font-playfair font-medium text-[24px] text-[#C2CBDC] hover:text-[#7C0000] ml-2 flex items-center">
-              CIVIC.
-              {/* <div className="font-playfair font-medium text-[24px] text-[#7ed957] hover:text-[#1E1E1E] flex items-center">
-                Electric
-              </div> */}
+              <a href="https://civic-kohl.vercel.app/">
+                CIVIC. 
+              </a>
             </div>
           </div>
           <ul className="list-none sm:flex hidden justify-end items-center flex-1 pr-1">
