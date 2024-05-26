@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
 import ProgressDemo from "@/app/components/ProgressBar";
+import DonationModal from "@/app/components/DonationModal";
 // {
 //   "project_id": 1,
 //   "user_id": 1,
@@ -101,9 +102,18 @@ export default function Page({ params }: { params: { id: string } }) {
                 S${projectData.project_match_amount}
               </div>
               <div className="flex justify-center">
-              <button className="w-1/2 bg-[#7C0000]/80 hover:bg-[#7C0000] text-white font-bold py-2 px-4 rounded">
+              {/* <button className="w-1/2 bg-[#7C0000]/80 hover:bg-[#7C0000] text-white font-bold py-2 px-4 rounded">
                     Donate
-                </button>
+                </button> */}
+                <DonationModal
+                  project_id={projectData.project_id}
+                  drive_id={projectData.drive_id}
+                  target_amount={projectData.project_target_amount}
+                  donations={projectData.project_donations}
+                  project_name={projectData.project_name}
+                  project_description={projectData.project_description}
+                  match_amount={projectData.project_match_amount}
+                />
               </div>
             </div>
           ) : (

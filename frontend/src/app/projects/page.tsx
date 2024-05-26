@@ -43,6 +43,7 @@ export default function Home() {
                 donation={project.project_donations}
                 target={project.project_target_amount}
                 matchamt={project.project_match_amount}
+                drive_id={project.drive_id}
               />
             </div>
           );

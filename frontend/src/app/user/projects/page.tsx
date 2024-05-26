@@ -114,6 +114,7 @@ export default function UserProjectsPage() {
                     donation={project.project_donations}
                     target={project.project_target_amount}
                     matchamt={project.project_match_amount}
+                    drive_id={project.drive_id}
                   />
                 </div>
               </div>
@@ -133,6 +134,7 @@ export default function UserProjectsPage() {
                     donation={project.project_donations}
                     target={project.project_target_amount}
                     matchamt={project.project_match_amount}
+                    drive_id={project.drive_id}
                   />
                 </div>
               </div>
