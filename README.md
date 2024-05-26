@@ -1,6 +1,8 @@
 # Civic.
 ---
-Civic is an innovative crowdfunding platform designed to empower community projects and initiatives through optimal allocation of corporate social responsibility (CSR) funds. By utilizing a sophisticated quadratic funding mechanism, Civic ensures that projects with widespread community support receive the most significant funding boosts. This not only democratizes the funding process but also maximizes the impact and reach of CSR contributions.
+Civic is an innovative crowdfunding platform designed to empower community projects and initiatives through optimal allocation of corporate social responsibility (CSR) funds. By utilizing a sophisticated quadratic funding mechanism, Civic 
+ensures that projects with widespread community support receive the most significant funding boosts. This not only democratizes the funding process but also maximizes the impact and reach of CSR contributions.
+
 ---
 ### Civic enables:
 1. Contributing monetarily to projects that are dear to you.
@@ -13,4 +15,8 @@ Civic is an innovative crowdfunding platform designed to empower community proje
 - Backend: Express.js
 - ORM: Prisma.io
 - DB: PostgreSQL on Amazon RDS
+
+---
+### Link to documentation:
+🚀[Civic API Documentation](https://www.notion.so/Backend-design-f48a8663833a4a9b868879ff68467fa5)
 
