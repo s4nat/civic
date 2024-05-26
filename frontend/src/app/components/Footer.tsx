@@ -38,7 +38,7 @@ export default function Footer() {
         <hr className="h-px bg-gray-500 opacity-30 border-0 mb-4" />
         <div className="flex items-center mx-auto text-gray-600 container justify-center md:justify-between py-2">
           <div>
-            <span className="font-normal">© 2024 Elgo Electric, Inc.</span>
+            <span className="font-normal">© 2024 Civic, Inc.</span>
           </div>
           <a
             className="items-center gap-2 hidden md:flex"
