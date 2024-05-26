@@ -15,7 +15,7 @@ interface FeatureCardProps {
 }
 
 const FeatureCard = (props: FeatureCardProps) => (
-  // <Link href={props.link}>
+  <Link href={props.link}>
 
   < div
     className={`flex flex-row p-6 p-6 rounded-[5px] bg-[#fff4f4] hover:translate-y-[5px] hover:scale-101 hover:bg-[#7C0000]/20 ${props.index !== features.length - 1 ? "mb-6" : "mb-0"
@@ -39,7 +39,7 @@ const FeatureCard = (props: FeatureCardProps) => (
       </p>
     </div>
   </div >
-  // </Link >
+</Link >
 );
 
 const Business = () => {
@@ -58,7 +58,7 @@ const Business = () => {
       </div>
       <div className={`${layout.sectionImg} flex-col`}>
         {features.map((feature, index) => (
-          <FeatureCard key={feature.id} {...feature} index={index} />
+          <FeatureCard  key={feature.id} {...feature} index={index} />
         ))}
       </div>
     </section>

@@ -81,6 +81,7 @@ export const features = [
     title: "CIVIC. Project Proposals",
     content:
       "Get funding for your community project and make a big impact.",
+    link:"/initiate"
   },
   {
     id: "feature-2",
@@ -88,6 +89,7 @@ export const features = [
     title: "CIVIC. Support a Project",
     content:
       "Every donation counts. Explore projects to contribute to and participate in.",
+    link: "/projects"
   },
   {
     id: "feature-3",
@@ -95,6 +97,7 @@ export const features = [
     title: "CIVIC. Become a Funder",
     content:
       "Channel your CSR budget to a wider and more impactful range of projects.",
+    link: "mailto:hello@civic.com"
   },
 ];
 
