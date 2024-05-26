@@ -15,7 +15,7 @@ export default withPageAuthRequired(
         };
 
         const exists = await fetch(
-          `https://elgo-backend.vercel.app/users/getByEmail/${user.email}`
+          `https://civic-kohl.vercel.app/users/getByEmail/${user.email}`
         );
         if (exists.status === 200) {
           const details = await exists.json();

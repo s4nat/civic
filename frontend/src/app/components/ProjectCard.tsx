@@ -3,6 +3,7 @@ import Image from "next/image";
 import { singapore } from "../../../public";
 import ProgressBar from "./ProgressBar";
 import Link from "next/link";
+import DonationModal from "./DonationModal";
 interface ProjectCardProps {
     id:number;
     name: string;
@@ -10,6 +11,7 @@ interface ProjectCardProps {
     donation: number;
     target: number;
     matchamt: number;
+    drive_id: string;
 }
 export default function ProjectCard(props: ProjectCardProps) {
     //Generate a Project card with the properties from Project Card Props
@@ -34,9 +36,10 @@ export default function ProjectCard(props: ProjectCardProps) {
             <div className="flex flex-col">
                 <div className="text-sm font-bold">Match Amount from Drive Pool</div>
                 <div className="flex justify-center text-2xl font-bold my-1"> {"S$"+props.matchamt}</div>
-                <button className="bg-[#7C0000]/80 hover:bg-[#7C0000] text-white font-bold py-2 px-4 rounded">
+                {/* <button className="bg-[#7C0000]/80 hover:bg-[#7C0000] text-white font-bold py-2 px-4 rounded">
                     Donate
-                </button>
+                </button> */}
+                <DonationModal project_name={props.name} project_id={props.id} drive_id={props.drive_id} project_description={props.description} target_amount={props.target} donations={props.donation} match_amount={props.matchamt} />
             </div>
         </div>
         </Link>
