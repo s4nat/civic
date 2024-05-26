@@ -20,7 +20,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-lime-500 cursor-pointer" href="https://youtu.be/oXdVQFblgdk" target="_blank">
+                  <a className="text-gray-600 hover:text-lime-500 cursor-pointer" href="https://youtu.be/E0ixRau4Yn0" target="_blank">
                     Video
                   </a>
                 </li>
