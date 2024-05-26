@@ -50,14 +50,11 @@ export default function DonationModal(props: DonationModalProps) {
         for (let i = 0; i < projectData.length; i++) {
             projectData[i]["match_amount"] = (projectData[i]["qfamt"]/totalSum)*matchAmt;
         }
-        
-
         console.log(projectData);
-
     }
 
     return(
-        calcChange(),
+        //calcChange(),
         <div>
             <h1>Donation Modal</h1>
         </div>

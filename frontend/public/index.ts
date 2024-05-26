@@ -18,7 +18,6 @@ import star from "./Star.svg";
 import menu from "./menu.svg";
 import close from "./close.svg";
 import google from "./google.svg";
-import apple from "./apple.svg";
 import arrowUp from "./arrow-up.svg";
 import discount from "./Discount.svg";
 import facebook from "./facebook.svg";
@@ -37,6 +36,10 @@ import tx from "./Tan Xinlin_E02.jpg";
 import fauxzan from "./Mohammed Fauzaan Mahaboob_E02.jpg";
 import vn from "./Visshal Natarajan_E02.jpg";
 import singapore from "./singapore.jpeg";
+import sia from "./singapore airlines.png";
+import apple from "./apple.png";
+import adidas from "./adidas.svg";
+import dbs from "./dbs.png";
 
 export {
   airbnb,
@@ -78,4 +81,7 @@ export {
   fauxzan,
   vn,
   singapore,
+  sia,
+  dbs,
+  adidas,
 };

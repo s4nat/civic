@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import {sia, dbs, apple, adidas} from "../../../public";
 import { coinbase } from "../../../public";
 import Link from "next/link";
 interface CompanyCardProps {
@@ -15,7 +16,7 @@ export default function CompanyCard(props: CompanyCardProps) {
       <div className="flex bg-[#DDC9B4]/20 hover:bg-[#DDC9B4]/45 flex flex-col rounded-md p-5 ">
         <div className="flex justify-around items-center my-2">
           <div>
-            <Image src={coinbase} alt="team" className="w-[100px]" />
+            <Image src={props.name=="DBS"?dbs:props.name=="Apple"?apple:props.name=="Adidas"?adidas:sia} alt="team" className="w-[100px]" />
           </div>
           <div>
             <div className="font-playfair font-medium text-[#7C0000] text-[24px]">
