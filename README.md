@@ -19,6 +19,13 @@ ensures that projects with widespread community support receive the most signifi
 3. Orchestrate the quadratic funding mechanism which ensures optimal allocation of funds to democratically chosen projects.
 
 ---
+
+# Incentive structure
+
+Our incentive structure consists of three main actors: the funding companies, the organizing entities, and the participants in the application. Read more about our incentive structure in the page below.
+
+[Our incentive structure](https://numerous-nitrogen-e35.notion.site/Incentives-7dc9169fb8c344b6bc43881ea3c65b87?pvs=4)
+
 ### Tech stack
 
 - Frontend: Next.js + Tailwind CSS
