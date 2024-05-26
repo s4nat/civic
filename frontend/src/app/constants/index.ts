@@ -28,6 +28,12 @@ import {
 
 export const signedInLinks = [
   {
+    id: "home",
+    title: "Home",
+    link: "/"
+  },
+  {
+
     id: "explore",
     title: "Explore",
     link: "/projects"

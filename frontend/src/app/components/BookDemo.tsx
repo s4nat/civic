@@ -6,24 +6,16 @@ import Link from 'next/link'
 
 const BookDemo = () => {
   return (
-    <Link href='/api/auth/login'>
-    <div className={`${styles.flexCenter} w-[140px] h-[140px] rounded-full bg-gradient-to-r from-green-500 to-blue-600 p-[2px] cursor-pointer`}>
-      <div className={`${styles.flexCenter} flex-col bg-black hover:bg-gradient-to-r hover:bg-from-green-500 hover:bg-to-blue w-[100%] h-[100%] rounded-full`}>
-        <div className={`${styles.flexStart} flex-row`}>
-          <p className='font-playfair font-medium text-[18px] leading-[23px] mr-2'>
-            <span className='text-gradient'>Book</span>
-          </p>
-          <Image
-            src={arrowUp}
-            alt='arrow'
-            className='w-[23px] h-[23px] object-contain'
-          />
+    <Link href='https://www.wtfisqf.com/' target="_blank">
+      <div className={`${styles.flexCenter} w-[140px] h-[140px] rounded-full bg-[#7C0000] p-[2px] cursor-pointer`}>
+        <div className={`${styles.flexCenter} flex-col bg-[#7c0000]/50 w-[100%] h-[100%] rounded-full`}>
+          <div className={`${styles.flexStart} flex-row`}>
+            <p className='font-playfair font-medium text-[18px] leading-[23px] mr-2'>
+              <span className='text-[#D9D9D9]'>wtfisqf.com</span>
+            </p>
+          </div>
         </div>
-        <p className='font-playfair font-medium text-[18px] leading-[23px]'>
-          <span className='text-gradient'>Demo</span>
-        </p>
       </div>
-    </div>
     </Link>
   )
 }
