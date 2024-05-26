@@ -17,6 +17,8 @@ ensures that projects with widespread community support receive the most signifi
 - DB: PostgreSQL on Amazon RDS
 
 ---
-### Link to documentation:
-🚀[Civic API Documentation](https://www.notion.so/Backend-design-f48a8663833a4a9b868879ff68467fa5)
+### Links:
+🗎[Civic API Documentation](https://www.notion.so/Backend-design-f48a8663833a4a9b868879ff68467fa5)
+
+🚀[Civic App](https://civic-a71o.vercel.app/)
 
