@@ -46,7 +46,7 @@ export const signedInLinks = [
   {
     id: "initiate",
     title: "Initiate",
-    link: "/initiate",
+    link: "https://forms.gle/pdFFU1uyZbovmKvM6",
   },
   {
     id: "your projects",
@@ -81,7 +81,7 @@ export const features = [
     title: "CIVIC. Project Proposals",
     content:
       "Get funding for your community project and make a big impact.",
-    link:"/initiate"
+    link: "/initiate"
   },
   {
     id: "feature-2",
