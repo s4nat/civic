@@ -14,7 +14,7 @@ interface ProjectCardProps {
 export default function ProjectCard(props: ProjectCardProps) {
     //Generate a Project card with the properties from Project Card Props
     return (
-        <Link href={"./projects/"+props.id}>
+        <Link href={"/projects/"+props.id}>
         <div className="flex bg-[#DDC9B4]/20 hover:bg-[#DDC9B4]/45 flex flex-col rounded-md p-5">
             <div className="rounded-md">
                 <Image src={singapore} alt="Singapore" className="rounded-md"></Image>

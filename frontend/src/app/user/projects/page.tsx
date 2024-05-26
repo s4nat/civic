@@ -2,7 +2,6 @@
 import ProjectCard from "@/app/components/ProjectCard";
 import ProjectProps from "@/app/components/ProjectProps";
 import DonationProps from "@/app/props/DonationProps";
-import { getSession, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useEffect, useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
