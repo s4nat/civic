@@ -261,35 +261,6 @@ export const productDesc = {
   "light": "Our reinforcement learning algorithm acts like a sophisticated switch.  It analyzes environmental factors and comfort levels to orchestrate the perfect lighting, eliminating redundant usage while prioritizing patron ease."
 }
 
-export const pricingPackages = [
-  {
-    id: "pricing-1",
-    title: "Starter Elgo Package",
-    recommended: "Basic",
-    content: ["HVAC Optimization", "Refrigerator and Kitchen Appliance Submetering and Anomaly Detection (Upto 3 Devices)", "User Comfort Based Lighting Optimisation"],
-    pricing: "+$0",
-    buttontext: "Get Started",
-    elgoPackage: false
-  },
-  {
-    id: "pricing-2",
-    title: "Advanced Elgo Package",
-    recommended: "Recommended",
-    content: ["HVAC Optimization", "Refrigerator and Kitchen Appliance Submetering and Anomaly Detection (Upto 7 Devices)", "User Comfort Based Lighting Optimisation", "24/7 Mechanical Service"],
-    pricing: "+$100",
-    buttontext: "Upgrade Now",
-    elgoPackage: true
-  },
-  {
-    id: "pricing-3",
-    title: "Custom Elgo Package",
-    recommended: "Premium",
-    content: ["HVAC Optimization", "Refrigerator and Kitchen Appliance Submetering and Anomaly Detection (Upto 7 Devices)", "User Comfort Based Lighting Optimisation", "24/7 Mechanical Service", "Custom Model for every device in Kitchen", "Regular & Custom Software Updates"],
-    pricing: "+$250",
-    buttontext: "Choose Plan",
-    elgoPackage: false
-  }
-]
 
 export const teamMembers = [
 
