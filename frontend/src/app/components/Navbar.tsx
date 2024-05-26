@@ -21,7 +21,7 @@ const Navbar = () => {
           <div className={`w-1/2 flex justify-start`}>
             <Image src={logo2} alt="logo" className="w-[54px] h-[52px]" />
             <div className="font-playfair font-medium text-[24px] text-[#C2CBDC] hover:text-[#7C0000] ml-2 flex items-center">
-              <a href="https://civic-kohl.vercel.app/">
+              <a href="https://civic-a71o.vercel.app/">
                 CIVIC.
               </a>
             </div>
